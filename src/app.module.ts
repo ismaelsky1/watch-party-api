@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RoomModule } from './routes/room/room.module';
 import { AppGateway } from './websocket.gateway';
@@ -13,6 +12,6 @@ import { AppGateway } from './websocket.gateway';
     RoomModule,
   ],
   controllers: [AppController],
-  providers: [AppService, AppGateway],
+  providers: [AppGateway],
 })
-export class AppModule {}
+export class AppModule { }

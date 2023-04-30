@@ -5,7 +5,9 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
-  app.enableCors();
+  app.enableCors({
+    origin: '*',
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Watch-party-api')
@@ -27,6 +29,6 @@ async function bootstrap() {
 
   app.listen(process.env.PORT || 3002);
 
-  console.log('Server is running ✔');
+  console.log(`Server is running ✔ ${process.env.PORT || 3002}`);
 }
 bootstrap();
